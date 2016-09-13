@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:current_user_id] = @user.id
-      redirect root_url
+      redirect_to root_url
     else
-      render new
+      render :new
     end
   end
 
@@ -18,5 +18,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
-  
+
 end

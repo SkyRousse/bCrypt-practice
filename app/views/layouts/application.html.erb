@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <% if session[:current_user_id] %>
+    <nav>
+      <%= link_to "Home", root_url %>
+      <%= link_to "Log Out", login_path(0),
+                  :data => {:method => "delete"}%>
+                </nav>
+    <% else %>
+      <%= link_to "Sign Up", new_user_path %>
+      <%= link_to "Login", new_login_path %>
+    <% end %>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+
     <%= yield %>
   </body>
 </html>

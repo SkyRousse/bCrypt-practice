@@ -1,0 +1,13 @@
+- @posts.each do |post|
+  = post.content
+  = post.user_id
+  %br
+  .my_class{ id: "#{post.id}"}
+    - x = 2
+    - if x == 0
+      = x
+    - else
+      %p x doesnt equal 0
+    %p= link_to "this is a link", root_url
+.footer
+  %p footer text

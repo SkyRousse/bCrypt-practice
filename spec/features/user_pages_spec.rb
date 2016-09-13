@@ -9,4 +9,9 @@ describe 'creates a new user process' do
     click_on 'Create User'
     expect(page).to have_content 'welcome!'
   end
+  it "fails when attempting to create new user" do
+    visit new_user_path
+    click_on "Create User"
+    expect(page).to have_content 'there was a problem, please try again'
+  end
 end

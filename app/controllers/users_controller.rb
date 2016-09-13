@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'welcome!'
       redirect_to root_url
     else
+      flash[:notice] = 'there was a problem, please try again'
       render :new
     end
   end

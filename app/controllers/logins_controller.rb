@@ -17,6 +17,7 @@ class LoginsController < ApplicationController
 
   def destroy
     @_current_user = session[:current_user_id] = nil
+    flash[:notice] = "You have been logged out"
     redirect_to root_url
   end
 end
